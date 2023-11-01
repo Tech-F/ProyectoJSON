@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import model.AplicacionUsuarios;
+import org.json.JSONObject;
 
 public class VentanaCrearUsuario extends JFrame implements ActionListener {
 
@@ -100,10 +101,18 @@ public class VentanaCrearUsuario extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-			try{
-				if(e.getSource()==btnCrear){
+		//Pasamos toda la info a variables a las que podamos acceder
+			if(e.getSource()==btnCrear){
+				String nombre=textoNombre.getText();
+				String contraseña=textoContraseña.getText();
+				String edad =textoEdad.getText();
+				String correo=textoCorreo.getText();
 
-				}
+				// Enviamos los datos al método crearUsuario de la clase AplicacionUsuarios
+				AplicacionUsuarios app = this.app;
+				app.crearUsuario(nombre, contraseña, edad, correo);
+				this.dispose();
 			}
+
 	}
 }

@@ -76,6 +76,15 @@ public class VentanaInicioSesion extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		AplicacionUsuarios app=new AplicacionUsuarios();
+		if(e.getSource()==btnCrearNuevoUsuario){
+			app.mostrarVentanaCrearUsuario();
+		}
+		if(e.getSource()==btnIniciarSesion){
+			String nombre=textoUsuario.getText();
+			String pass=textoContraseña.getText();
+			app.iniciarSesion(nombre,pass);
 
+		}
 	}
 }
